@@ -12,15 +12,18 @@ CFLAGS=-std=c++20
 # CFLAGS+=-D_FORTIFY_SOURCE=3
 # endif
 
-all: bin/ bin/create-sample bin/solution-1
+all: bin/ bin/create-sample bin/solution-1 bin/solution-2
 
 bin/:
 	mkdir -p bin/
 
-bin/create-sample: create-sample.cpp
+bin/create-sample: src/create-sample.cpp
 	g++ $(CFLAGS) $^ -o $@
 
-bin/solution-1: solution-1.cpp
+bin/solution-1: src/solution-1.cpp
+	g++ $(CFLAGS) $^ -o $@
+
+bin/solution-2: src/solution-2.cpp
 	g++ $(CFLAGS) $^ -o $@
 
 .PHONY: clean
